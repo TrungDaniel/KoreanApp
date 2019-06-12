@@ -3,20 +3,20 @@ package com.example.koreanapp.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ContactResult{
+public class ContactResult {
 
-@SerializedName("contactID")
-@Expose
-public Integer contactID;
-@SerializedName("name")
-@Expose
-public String name;
-@SerializedName("phone")
-@Expose
-public String phone;
-@SerializedName("description")
-@Expose
-public String description;
+    @SerializedName("contactID")
+    @Expose
+    public Integer contactID;
+    @SerializedName("name")
+    @Expose
+    public String name;
+    @SerializedName("phone")
+    @Expose
+    public String phone;
+    @SerializedName("description")
+    @Expose
+    public String description;
 
     public Integer getContactID() {
         return contactID;

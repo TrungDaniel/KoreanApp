@@ -26,9 +26,9 @@ public class PlaceActivity extends AppCompatActivity {
     }
 
     private void docJson() {
-        String strHomeData = Util.loadJSONPlaceFromAsset(this);
+        String strPlaceData = Util.loadJSONPlaceFromAsset(this);
         Gson gson = new Gson();
-        placedata = gson.fromJson(strHomeData, Place.class);
+        placedata = gson.fromJson(strPlaceData, Place.class);
     }
 
     private void configRvPlace() {

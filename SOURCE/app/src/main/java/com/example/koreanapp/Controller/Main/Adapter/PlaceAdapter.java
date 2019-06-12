@@ -8,13 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.koreanapp.Model.Place;
 import com.example.koreanapp.Model.PlaceResult;
 import com.example.koreanapp.R;
 
 import java.util.List;
 
-public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder>{
+public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
     public Context context;
     public List<PlaceResult> data;
 
@@ -29,7 +28,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     @NonNull
     @Override
     public PlaceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.place_item_layout,viewGroup,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.place_item_layout, viewGroup, false);
         return new PlaceViewHolder(view);
     }
 
@@ -50,7 +49,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
 
         public PlaceViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvPlaceTitle= itemView.findViewById(R.id.tv_place_title);
+            tvPlaceTitle = itemView.findViewById(R.id.tv_place_title);
         }
     }
 }

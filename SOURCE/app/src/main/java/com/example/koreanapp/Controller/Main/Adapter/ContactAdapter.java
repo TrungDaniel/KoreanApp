@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.koreanapp.Model.Contact;
 import com.example.koreanapp.Model.ContactResult;
 import com.example.koreanapp.R;
 
@@ -29,15 +28,15 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     @NonNull
     @Override
     public ContactViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.contact_item_layout,viewGroup,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.contact_item_layout, viewGroup, false);
         return new ContactViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder contactViewHolder, int i) {
         ContactResult contactResult = data.get(i);
-        contactViewHolder.tvName.setText(contactResult.getName());
-        contactViewHolder.tvPhone.setText(contactResult.getPhone());
+        contactViewHolder.tvContactName.setText(contactResult.getName());
+        contactViewHolder.tvContactPhone.setText(contactResult.getPhone());
 
     }
 
@@ -47,13 +46,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     }
 
     class ContactViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName;
-        TextView tvPhone;
+        TextView tvContactName;
+        TextView tvContactPhone;
 
         public ContactViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName=itemView.findViewById(R.id.tv_name);
-            tvPhone=itemView.findViewById(R.id.tv_phone);
+            tvContactName = itemView.findViewById(R.id.tv_contact_name);
+            tvContactPhone = itemView.findViewById(R.id.tv_contact_phone);
         }
     }
 }

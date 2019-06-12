@@ -21,6 +21,7 @@ public class Util {
         }
         return str;
     }
+
     public static String loadJSONContactFromAsset(Context context) {
         String str = null;
         try {

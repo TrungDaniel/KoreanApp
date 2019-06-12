@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.example.koreanapp.R;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnPlace, btnContact;
+    Button btnPlace,btnContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         init();
         chuyenManHinh();
     }
-
     private void chuyenManHinh() {
         btnPlace.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ContactActivity.class);
+                Intent intent = new Intent(MainActivity.this, ContactActivity.class);
                 startActivity(intent);
             }
         });

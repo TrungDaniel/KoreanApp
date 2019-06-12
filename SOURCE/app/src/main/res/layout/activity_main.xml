@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Controller.Main.MainActivity">
 
     <Button
         android:id="@+id/btn_place"
-        android:layout_marginTop="250dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Place"
         android:layout_width="150dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"
+        android:text="Place" />
+
     <Button
         android:id="@+id/btn_contact"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Contact"
         android:layout_width="150dp"
-        android:layout_height="wrap_content" />
-    <Button
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        android:text="Contact" />
 
-        android:layout_gravity="center_horizontal"
-        android:text="Promotion"
+    <Button
         android:layout_width="150dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Promotion" />
 
 </LinearLayout>
