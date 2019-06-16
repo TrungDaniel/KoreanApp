@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.example.koreanapp.R;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnPlace,btnContact;
+    Button btnPlace,btnContact,btnPromotion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +33,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnPromotion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,PromotionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void init() {
         btnPlace = findViewById(R.id.btn_place);
         btnContact = findViewById(R.id.btn_contact);
+        btnPromotion = findViewById(R.id.btn_promotion);
     }
 }
