@@ -17,4 +17,5 @@ public interface WonderVNAPIService {
     Call<ResponseBody> getListPromotion(@Body Object object);
 
 
+
 }

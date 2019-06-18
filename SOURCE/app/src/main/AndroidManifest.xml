@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WonderVN.PromotionActivity"></activity>
+        <activity android:name=".WonderVN.PlaceInformationActivity"></activity>
+        <activity android:name=".WonderVN.PromotionActivity" />
         <activity android:name=".WonderVN.ContactActivity" />
         <activity android:name=".WonderVN.PlaceActivity" />
         <activity android:name=".Controller.Main.MainActivity">

@@ -1,6 +1,7 @@
 package com.example.koreanapp.Controller.Main.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.koreanapp.Model.PlaceResult;
 import com.example.koreanapp.R;
+import com.example.koreanapp.WonderVN.PlaceInformationActivity;
 
 import java.util.List;
 
@@ -34,13 +36,17 @@ public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlaceViewHolder placeViewHolder, final int i)  {
+    public void onBindViewHolder(@NonNull final PlaceViewHolder placeViewHolder, final int i)  {
         PlaceResult placeResult = data.get(i);
         placeViewHolder.tvPlaceTitle.setText(placeResult.getPlaceName());
         placeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "pos"+i, Toast.LENGTH_SHORT).show();
+                v.getContext().startActivity(new Intent(v.getContext(), PlaceInformationActivity.class)
+                .putExtra("informationID",i)
+                );
+
+
             }
         });
         if (data.get(i).getIsPromotion() == 1) {
