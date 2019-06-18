@@ -1,14 +1,20 @@
 package com.example.koreanapp.WonderVN;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.koreanapp.Controller.Main.Adapter.ContactAdapter;
+import com.example.koreanapp.Controller.Main.MainActivity;
 import com.example.koreanapp.Model.Contact;
+import com.example.koreanapp.Model.Place;
 import com.example.koreanapp.R;
 import com.google.gson.Gson;
 
@@ -23,6 +29,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ContactActivity extends AppCompatActivity {
     RecyclerView rvContact;
+    BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,32 @@ public class ContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contact);
         init();
         getData();
+        chuyenManHinh();
+    }
+
+    private void chuyenManHinh() {
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_Home:
+                        Intent intentHome = new Intent(ContactActivity.this, MainActivity.class);
+                        startActivity(intentHome);
+                        break;
+                    case R.id.nav_place:
+                        Intent intentPlace = new Intent(ContactActivity.this, PlaceActivity.class);
+                        startActivity(intentPlace);
+                        break;
+                    case R.id.nav_promotion:
+                        Intent intentPromotion = new Intent(ContactActivity.this, PromotionActivity.class);
+                        startActivity(intentPromotion);
+                        break;
+
+                }
+                return false;
+            }
+        });
     }
 
     private void getData() {

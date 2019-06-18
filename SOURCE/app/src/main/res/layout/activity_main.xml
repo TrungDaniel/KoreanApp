@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,44 +10,26 @@
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:src="@mipmap/img_koreann" />
 
-    <Button
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:background="#ff8b00"
-        android:id="@+id/btn_place"
-        android:layout_width="150dp"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="Place" />
+        android:layout_alignParentBottom="true"
+        android:background="#282828"
+        app:itemIconTint="#808080"
+        app:itemTextColor="#808080"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation"></android.support.design.widget.BottomNavigationView>
 
-    <Button
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:background="#ff8b00"
-        android:id="@+id/btn_contact"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="Contact" />
+</RelativeLayout>
 
-    <Button
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:background="#ff8b00"
-        android:id="@+id/btn_promotion"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="Promotion" />
 
-</LinearLayout>
+
+
+

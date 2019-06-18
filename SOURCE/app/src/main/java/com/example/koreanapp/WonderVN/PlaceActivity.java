@@ -1,14 +1,19 @@
 package com.example.koreanapp.WonderVN;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.koreanapp.Controller.Main.Adapter.PlaceAdapter;
+import com.example.koreanapp.Controller.Main.MainActivity;
 import com.example.koreanapp.Model.Place;
 import com.example.koreanapp.R;
 import com.google.gson.Gson;
@@ -24,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlaceActivity extends AppCompatActivity {
     RecyclerView rvPlace;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,33 @@ public class PlaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place);
         init();
         getData();
+        chuyenmanhinh();
+    }
+
+    private void chuyenmanhinh() {
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_Home:
+                        Intent intentHome = new Intent(PlaceActivity.this, MainActivity.class);
+                        startActivity(intentHome);
+                        break;
+                    case R.id.nav_contact:
+                        Intent intentContact = new Intent(PlaceActivity.this, ContactActivity.class);
+                        startActivity(intentContact);
+                        break;
+                    case R.id.nav_promotion:
+                        Intent intentPromotion = new Intent(PlaceActivity.this, PromotionActivity.class);
+                        startActivity(intentPromotion);
+                        break;
+
+                }
+                return false;
+            }
+        });
     }
 
     private void init() {
