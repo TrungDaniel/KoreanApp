@@ -42,10 +42,10 @@ public class PlaceResult {
     public Integer isPromotion;
     @SerializedName("longitude")
     @Expose
-    public Integer longitude;
+    public double longitude;
     @SerializedName("latitude")
     @Expose
-    public Integer latitude;
+    public double latitude;
     @SerializedName("kakaoTalk")
     @Expose
     public String kakaoTalk;
@@ -141,19 +141,19 @@ public class PlaceResult {
         this.isPromotion = isPromotion;
     }
 
-    public Integer getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Integer longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public Integer getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Integer latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 

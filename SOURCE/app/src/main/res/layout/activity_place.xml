@@ -4,15 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Controller.Main.PlaceActivity">
+    tools:context=".WonderVN.PlaceActivity">
 
     <include layout="@layout/seach_layout"></include>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_place"
+        android:id="@+id/rv_Place"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

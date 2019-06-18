@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.koreanapp.Model.PlaceResult;
 import com.example.koreanapp.R;
 
 import java.util.List;
 
-public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
+public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
     public Context context;
     public List<PlaceResult> data;
 
@@ -33,13 +34,18 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlaceViewHolder placeViewHolder, int i) {
+    public void onBindViewHolder(@NonNull PlaceViewHolder placeViewHolder, final int i)  {
         PlaceResult placeResult = data.get(i);
         placeViewHolder.tvPlaceTitle.setText(placeResult.getPlaceName());
-        if (data.get(i).getIsPromotion()==1){
+        placeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "pos"+i, Toast.LENGTH_SHORT).show();
+            }
+        });
+        if (data.get(i).getIsPromotion() == 1) {
             placeViewHolder.tvPlaceVip.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             placeViewHolder.tvPlaceVip.setVisibility(View.INVISIBLE
             );
         }
@@ -58,7 +64,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
         public PlaceViewHolder(@NonNull View itemView) {
             super(itemView);
             tvPlaceTitle = itemView.findViewById(R.id.tv_place_title);
-            tvPlaceVip =itemView.findViewById(R.id.tv_place_vip);
+            tvPlaceVip = itemView.findViewById(R.id.tv_place_vip);
         }
     }
 }
