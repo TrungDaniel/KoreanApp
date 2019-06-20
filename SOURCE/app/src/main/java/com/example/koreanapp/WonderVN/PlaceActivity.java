@@ -1,5 +1,6 @@
 package com.example.koreanapp.WonderVN;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -83,12 +84,21 @@ public class PlaceActivity extends AppCompatActivity {
     }
 
     private void getData() {
+        final ProgressDialog progressDoalog;
+        progressDoalog = new ProgressDialog(PlaceActivity.this);
+        progressDoalog.setMessage("Loading..........");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDoalog.show();
         // khai báo , khởi tạo retrofit
         getListPlaceBody getListPlaceBody = new getListPlaceBody(0, 0, "");
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("http://150.95.115.192/api/")
                 .build();
+        // Set up progress before call
+
+
+
         retrofit.create(WonderVNAPIService.class).getListPlace(getListPlaceBody).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -105,6 +115,7 @@ public class PlaceActivity extends AppCompatActivity {
                     adapter.setData(place.getPlaceResults());
                     rvPlace.setAdapter(adapter);
                     rvPlace.addItemDecoration(new DividerItemDecoration(PlaceActivity.this, DividerItemDecoration.VERTICAL));
+                    progressDoalog.dismiss();
 
 
                 } catch (IOException e) {
@@ -117,6 +128,7 @@ public class PlaceActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(PlaceActivity.this, "Lấy dữ liệu thất bại", Toast.LENGTH_SHORT).show();
+                progressDoalog.dismiss();
 
             }
         });
