@@ -7,6 +7,7 @@
     tools:context=".WonderVN.PlaceInformationActivity">
 
     <TextView
+        android:background="@color/colorOrange"
         android:id="@+id/tv_infomation_place_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,29 +18,36 @@
         android:textStyle="bold" />
 
     <ImageView
+        android:layout_marginVertical="50dp"
+        android:layout_marginHorizontal="10dp"
         android:id="@+id/img_information_place"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_margin="10dp"
         android:scaleType="centerCrop" />
     <TextView
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:id="@+id/tv_infomation_place_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:text="Information Place Address"
-        android:textColor="#ff8b00"
+        android:textColor="@color/colorOrange"
         android:textStyle="bold" />
     <TextView
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:id="@+id/tv_infomation_place_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:text="Information Place Phone"
         android:textColor="#000000"
         android:textStyle="bold" />
+    <Button
+        android:text="Call"
+        android:textColor="#fff"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/button_orange"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

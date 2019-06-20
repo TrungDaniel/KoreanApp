@@ -1,11 +1,14 @@
 package com.example.koreanapp.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class PlaceResult {
+public class PlaceResult implements Parcelable {
 
     @SerializedName("placeID")
     @Expose
@@ -171,5 +174,15 @@ public class PlaceResult {
 
     public void setListMedia(List<Object> listMedia) {
         this.listMedia = listMedia;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

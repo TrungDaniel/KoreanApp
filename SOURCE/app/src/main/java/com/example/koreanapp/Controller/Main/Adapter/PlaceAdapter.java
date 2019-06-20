@@ -42,6 +42,10 @@ public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHo
         placeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PlaceResult result = new PlaceResult();
+                result.setPlaceName();
+                result.setUrlLogoPlace();
+                result.getPlaceName();
                 v.getContext().startActivity(new Intent(v.getContext(), PlaceInformationActivity.class)
                 .putExtra("informationID",i)
                 );
