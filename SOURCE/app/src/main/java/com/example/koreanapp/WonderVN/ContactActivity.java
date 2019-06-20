@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ContactActivity extends AppCompatActivity {
     RecyclerView rvContact;
     BottomNavigationView bottomNavigationView;
+    Toolbar tbContact;
 
 
     @Override
@@ -37,8 +39,14 @@ public class ContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
         init();
+        toolBar();
         getData();
         chuyenManHinh();
+    }
+
+    private void toolBar() {
+        setSupportActionBar(tbContact);
+        getSupportActionBar().setTitle(null);
     }
 
     private void chuyenManHinh() {
@@ -50,14 +58,17 @@ public class ContactActivity extends AppCompatActivity {
                     case R.id.nav_Home:
                         Intent intentHome = new Intent(ContactActivity.this, MainActivity.class);
                         startActivity(intentHome);
+                        finish();
                         break;
                     case R.id.nav_place:
                         Intent intentPlace = new Intent(ContactActivity.this, PlaceActivity.class);
                         startActivity(intentPlace);
+                        finish();
                         break;
                     case R.id.nav_promotion:
                         Intent intentPromotion = new Intent(ContactActivity.this, PromotionActivity.class);
                         startActivity(intentPromotion);
+                        finish();
                         break;
 
                 }
@@ -117,5 +128,6 @@ public class ContactActivity extends AppCompatActivity {
 
     private void init() {
         rvContact = findViewById(R.id.rv_Contact);
+        tbContact=findViewById(R.id.tb_contact);
     }
 }

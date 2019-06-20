@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -30,14 +30,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PlaceActivity extends AppCompatActivity {
     RecyclerView rvPlace;
     BottomNavigationView bottomNavigationView;
+    Toolbar tbPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place);
         init();
+        toolBar();
         getData();
         chuyenmanhinh();
+    }
+
+    private void toolBar() {
+        setSupportActionBar(tbPlace);
+        getSupportActionBar().setTitle(null);
     }
 
     private void chuyenmanhinh() {
@@ -50,14 +57,17 @@ public class PlaceActivity extends AppCompatActivity {
                     case R.id.nav_Home:
                         Intent intentHome = new Intent(PlaceActivity.this, MainActivity.class);
                         startActivity(intentHome);
+                        finish();
                         break;
                     case R.id.nav_contact:
                         Intent intentContact = new Intent(PlaceActivity.this, ContactActivity.class);
                         startActivity(intentContact);
+                        finish();
                         break;
                     case R.id.nav_promotion:
                         Intent intentPromotion = new Intent(PlaceActivity.this, PromotionActivity.class);
                         startActivity(intentPromotion);
+                        finish();
                         break;
 
                 }
@@ -68,6 +78,7 @@ public class PlaceActivity extends AppCompatActivity {
 
     private void init() {
         rvPlace = findViewById(R.id.rv_Place);
+        tbPlace = findViewById(R.id.tb_place);
 
     }
 

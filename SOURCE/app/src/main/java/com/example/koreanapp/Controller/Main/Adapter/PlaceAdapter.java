@@ -2,6 +2,7 @@ package com.example.koreanapp.Controller.Main.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import com.example.koreanapp.Model.PlaceResult;
 import com.example.koreanapp.R;
 import com.example.koreanapp.WonderVN.PlaceInformationActivity;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
@@ -37,17 +39,14 @@ public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final PlaceViewHolder placeViewHolder, final int i)  {
-        PlaceResult placeResult = data.get(i);
+        final PlaceResult placeResult = data.get(i);
         placeViewHolder.tvPlaceTitle.setText(placeResult.getPlaceName());
         placeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PlaceResult result = new PlaceResult();
-                result.setPlaceName();
-                result.setUrlLogoPlace();
-                result.getPlaceName();
+
                 v.getContext().startActivity(new Intent(v.getContext(), PlaceInformationActivity.class)
-                .putExtra("informationID",i)
+                .putExtra("object", (Parcelable) placeResult)
                 );
 
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.koreanapp.Model.ContactResult;
 import com.example.koreanapp.R;
@@ -33,10 +34,16 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactViewHolder contactViewHolder, int i) {
+    public void onBindViewHolder(@NonNull ContactViewHolder contactViewHolder, final int i) {
         ContactResult contactResult = data.get(i);
         contactViewHolder.tvContactName.setText(contactResult.getName());
         contactViewHolder.tvContactPhone.setText(contactResult.getPhone());
+        contactViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, ""+i, Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.koreanapp.Controller.Main.Adapter.PromotionAdapter;
@@ -29,14 +30,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PromotionActivity extends AppCompatActivity {
     RecyclerView rvPromotion;
     BottomNavigationView bottomNavigationView;
+    Toolbar tbPromotion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_promotion);
         init();
+        toolBar();
         getData();
         chuyenManHinh();
+    }
+
+    private void toolBar() {
+        setSupportActionBar(tbPromotion);
+        getSupportActionBar().setTitle(null);
     }
 
     private void chuyenManHinh() {
@@ -48,14 +56,17 @@ public class PromotionActivity extends AppCompatActivity {
                     case R.id.nav_Home:
                         Intent intentHome = new Intent(PromotionActivity.this, MainActivity.class);
                         startActivity(intentHome);
+                        finish();
                         break;
                     case R.id.nav_place:
-                        Intent intentPlacet = new Intent(PromotionActivity.this, Place.class);
+                        Intent intentPlacet = new Intent(PromotionActivity.this, PlaceActivity.class);
                         startActivity(intentPlacet);
+                        finish();
                         break;
                     case R.id.nav_contact:
                         Intent intentContact = new Intent(PromotionActivity.this, ContactActivity.class);
                         startActivity(intentContact);
+                        finish();
                         break;
 
                 }
@@ -101,6 +112,7 @@ public class PromotionActivity extends AppCompatActivity {
 
     private void init() {
         rvPromotion = findViewById(R.id.rv_promotion);
+        tbPromotion = findViewById(R.id.tb_promotion);
     }
 
     class getListPromoionBody {

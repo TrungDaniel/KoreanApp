@@ -3,6 +3,7 @@
     package="com.example.koreanapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WonderVN.PlaceInformationActivity"></activity>
+        <activity android:name=".WonderVN.PlaceInformationActivity" android:parentActivityName=".WonderVN.PlaceActivity"></activity>
         <activity android:name=".WonderVN.PromotionActivity" />
         <activity android:name=".WonderVN.ContactActivity" />
         <activity android:name=".WonderVN.PlaceActivity" />

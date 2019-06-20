@@ -7,6 +7,23 @@
     android:orientation="vertical"
     android:weightSum="10"
     tools:context=".WonderVN.PlaceActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_place"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorOrange"
+        android:minHeight="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="베트남에 오신 것을 환영합니다."
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.Toolbar>
 
     <include layout="@layout/seach_layout"></include>
 

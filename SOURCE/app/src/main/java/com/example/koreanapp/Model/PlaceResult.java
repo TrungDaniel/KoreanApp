@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.annotation.Annotation;
 import java.util.List;
 
 public class PlaceResult implements Parcelable {
@@ -55,6 +56,68 @@ public class PlaceResult implements Parcelable {
     @SerializedName("listMedia")
     @Expose
     public List<Object> listMedia = null;
+
+    public PlaceResult(Parcel in) {
+        if (in.readByte() == 0) {
+            placeID = null;
+        } else {
+            placeID = in.readInt();
+        }
+        placeName = in.readString();
+        urlLogoPlace = in.readString();
+        if (in.readByte() == 0) {
+            categoryID = null;
+        } else {
+            categoryID = in.readInt();
+        }
+        address = in.readString();
+        phone = in.readString();
+        urlWeb = in.readString();
+        description = in.readString();
+        if (in.readByte() == 0) {
+            isMoreDetail = null;
+        } else {
+            isMoreDetail = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            isPromotion = null;
+        } else {
+            isPromotion = in.readInt();
+        }
+        longitude = in.readDouble();
+        latitude = in.readDouble();
+        kakaoTalk = in.readString();
+    }
+
+    public static final Creator<PlaceResult> CREATOR = new Creator<PlaceResult>() {
+        @Override
+        public PlaceResult createFromParcel(Parcel in) {
+            return new PlaceResult(in);
+        }
+
+        @Override
+        public PlaceResult[] newArray(int size) {
+            return new PlaceResult[size];
+        }
+    };
+
+    public PlaceResult(Integer placeID, String placeName, String urlLogoPlace, Integer categoryID, String address, String phone, String urlWeb, String description, Object urlBanner, Integer isMoreDetail, Integer isPromotion, double longitude, double latitude, String kakaoTalk, List<Object> listMedia) {
+        this.placeID = placeID;
+        this.placeName = placeName;
+        this.urlLogoPlace = urlLogoPlace;
+        this.categoryID = categoryID;
+        this.address = address;
+        this.phone = phone;
+        this.urlWeb = urlWeb;
+        this.description = description;
+        this.urlBanner = urlBanner;
+        this.isMoreDetail = isMoreDetail;
+        this.isPromotion = isPromotion;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.kakaoTalk = kakaoTalk;
+        this.listMedia = listMedia;
+    }
 
     public Integer getPlaceID() {
         return placeID;
@@ -176,6 +239,7 @@ public class PlaceResult implements Parcelable {
         this.listMedia = listMedia;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -183,6 +247,38 @@ public class PlaceResult implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        if (placeID == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(placeID);
+        }
+        dest.writeString(placeName);
+        dest.writeString(urlLogoPlace);
+        if (categoryID == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(categoryID);
+        }
+        dest.writeString(address);
+        dest.writeString(phone);
+        dest.writeString(urlWeb);
+        dest.writeString(description);
+        if (isMoreDetail == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(isMoreDetail);
+        }
+        if (isPromotion == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(isPromotion);
+        }
+        dest.writeDouble(longitude);
+        dest.writeDouble(latitude);
+        dest.writeString(kakaoTalk);
     }
 }
