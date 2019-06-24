@@ -1,6 +1,8 @@
 package com.example.koreanapp.Controller.Main.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -41,7 +43,14 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         contactViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ""+i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "" + i, Toast.LENGTH_SHORT).show();
+            }
+        });
+        contactViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", data.get(i).getPhone(), null)));
+
             }
         });
 

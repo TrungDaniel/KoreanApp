@@ -95,9 +95,6 @@ public class PlaceActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("http://150.95.115.192/api/")
                 .build();
-        // Set up progress before call
-
-
 
         retrofit.create(WonderVNAPIService.class).getListPlace(getListPlaceBody).enqueue(new Callback<ResponseBody>() {
             @Override
@@ -123,7 +120,6 @@ public class PlaceActivity extends AppCompatActivity {
                 }
 
             }
-
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {

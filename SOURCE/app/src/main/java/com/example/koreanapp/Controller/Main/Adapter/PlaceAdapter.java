@@ -9,16 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.koreanapp.Model.PlaceResult;
 import com.example.koreanapp.R;
 import com.example.koreanapp.WonderVN.PlaceInformationActivity;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
+public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
     public Context context;
     public List<PlaceResult> data;
 
@@ -38,7 +36,7 @@ public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final PlaceViewHolder placeViewHolder, final int i)  {
+    public void onBindViewHolder(@NonNull final PlaceViewHolder placeViewHolder, final int i) {
         final PlaceResult placeResult = data.get(i);
         placeViewHolder.tvPlaceTitle.setText(placeResult.getPlaceName());
         placeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +44,7 @@ public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHo
             public void onClick(View v) {
 
                 v.getContext().startActivity(new Intent(v.getContext(), PlaceInformationActivity.class)
-                .putExtra("object", (Parcelable) placeResult)
+                        .putExtra("object", (Parcelable) placeResult)
                 );
 
 

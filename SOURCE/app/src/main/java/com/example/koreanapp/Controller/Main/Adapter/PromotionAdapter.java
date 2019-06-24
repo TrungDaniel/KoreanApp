@@ -41,6 +41,7 @@ public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.prom
         promotionViewHolder.tvPromotionAddress.setText(promotionResult.getPlaceDetail().getAddress());
         Picasso.get().load(promotionResult.getPlaceDetail().getUrlLogoPlace()).into(promotionViewHolder.imgPromotion);
 
+
     }
 
     @Override

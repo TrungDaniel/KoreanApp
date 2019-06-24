@@ -1,5 +1,6 @@
 package com.example.koreanapp.WonderVN;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -76,6 +77,11 @@ public class PromotionActivity extends AppCompatActivity {
     }
 
     private void getData() {
+        final ProgressDialog progressDoalog;
+        progressDoalog = new ProgressDialog(PromotionActivity.this);
+        progressDoalog.setMessage("Loading..........");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDoalog.show();
         getListPromoionBody getListPromoionBody = new getListPromoionBody(0, 0);
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -97,6 +103,7 @@ public class PromotionActivity extends AppCompatActivity {
                     adapter.setData(promotion.getResult());
                     rvPromotion.setAdapter(adapter);
                     rvPromotion.addItemDecoration(new DividerItemDecoration(PromotionActivity.this, DividerItemDecoration.VERTICAL));
+                    progressDoalog.dismiss();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -104,6 +111,7 @@ public class PromotionActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+                progressDoalog.dismiss();
 
             }
         });
