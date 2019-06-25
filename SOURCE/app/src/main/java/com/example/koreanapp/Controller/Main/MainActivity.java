@@ -5,19 +5,31 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.koreanapp.Controller.Main.Adapter.HomeAdapter;
 import com.example.koreanapp.R;
 import com.example.koreanapp.WonderVN.ContactActivity;
 import com.example.koreanapp.WonderVN.PlaceActivity;
 import com.example.koreanapp.WonderVN.PromotionActivity;
+import com.example.koreanapp.WonderVN.WonderVNAPIService;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnPlace, btnContact, btnPromotion;
     BottomNavigationView bottomNavigationView;
     Toolbar tbMain;
+    RecyclerView rvHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +38,45 @@ public class MainActivity extends AppCompatActivity {
         init();
         toolBar();
         chuyenManHinh();
+        getData();
+
+    }
+
+    private void getData() {
+        getListPlaceBody getListPlaceBody = new getListPlaceBody(0,0,"");
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("http://150.95.115.192/api/")
+                .build();
+        retrofit.create(WonderVNAPIService.class).getListCategorryAndBanner(getListPlaceBody).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                rvHome.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
+                HomeAdapter adapter = new HomeAdapter();
+                adapter.setContext(MainActivity.this);
+                rvHome.setAdapter(adapter);
+                Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "lấy dữ liệu thất bại", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+    }
+    class getListPlaceBody {
+        int catID, placeID;
+        String searchKey;
+
+        public getListPlaceBody(int catID, int placeID, String searchKey) {
+            this.catID = catID;
+            this.placeID = placeID;
+            this.searchKey = searchKey;
+        }
     }
 
     private void toolBar() {
@@ -68,5 +119,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         tbMain = findViewById(R.id.tb_main);
+        rvHome = findViewById(R.id.rv_home);
     }
 }
