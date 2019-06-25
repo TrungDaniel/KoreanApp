@@ -2,6 +2,7 @@ package com.example.koreanapp.WonderVN;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,14 +14,21 @@ public class BannerInformationActivity extends AppCompatActivity {
     PlaceHomeImage placeHomeImage;
     ImageView imgPlaceBanner;
     TextView tvPlaceName, tvPlacePhone, tvPlaceLocation, tvPlaceUrl;
-
+    Toolbar tbBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banner_information);
         init();
+        setToolBar();
         getData();
+    }
+
+    private void setToolBar() {
+        setSupportActionBar(tbBanner);
+        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void getData() {
@@ -37,6 +45,7 @@ public class BannerInformationActivity extends AppCompatActivity {
         tvPlacePhone = findViewById(R.id.tv_infomation_place_phone);
         tvPlaceLocation = findViewById(R.id.tv_infomation_place_address);
         tvPlaceUrl = findViewById(R.id.tv_infomation_place_url);
+        tbBanner = findViewById(R.id.tb_place_information);
 
     }
 }

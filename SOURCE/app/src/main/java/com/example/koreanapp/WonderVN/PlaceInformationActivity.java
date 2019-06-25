@@ -63,8 +63,7 @@ public class PlaceInformationActivity extends AppCompatActivity {
         Picasso.get().load(placeResult.getUrlLogoPlace()).into(imgInformation);
 
         // RecyclerView ImagePlace
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        rvImgPlace.setLayoutManager(linearLayoutManager);
+
 
 
 

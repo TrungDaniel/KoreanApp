@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WonderVN.BannerInformationActivity"></activity>
+        <activity
+            android:name=".WonderVN.BannerInformationActivity"
+            android:parentActivityName=".Controller.Main.MainActivity"></activity>
         <activity
             android:name=".WonderVN.PlaceInformationActivity"
             android:parentActivityName=".WonderVN.PlaceActivity" />
