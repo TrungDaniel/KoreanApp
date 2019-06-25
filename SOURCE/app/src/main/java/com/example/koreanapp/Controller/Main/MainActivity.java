@@ -9,15 +9,22 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Button;
+
 import android.widget.Toast;
 
 import com.example.koreanapp.Controller.Main.Adapter.HomeAdapter;
+import com.example.koreanapp.Model.Category;
+import com.example.koreanapp.Model.Contact;
+
+import com.example.koreanapp.Model.Place;
 import com.example.koreanapp.R;
 import com.example.koreanapp.WonderVN.ContactActivity;
 import com.example.koreanapp.WonderVN.PlaceActivity;
 import com.example.koreanapp.WonderVN.PromotionActivity;
 import com.example.koreanapp.WonderVN.WonderVNAPIService;
+import com.google.gson.Gson;
+
+import java.io.IOException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -48,14 +55,25 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("http://150.95.115.192/api/")
                 .build();
-        retrofit.create(WonderVNAPIService.class).getListCategorryAndBanner(getListPlaceBody).enqueue(new Callback<ResponseBody>() {
+        retrofit.create(WonderVNAPIService.class).getListCategory(getListPlaceBody).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                rvHome.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
-                HomeAdapter adapter = new HomeAdapter();
-                adapter.setContext(MainActivity.this);
-                rvHome.setAdapter(adapter);
-                Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                String strJson = null;
+                try {
+                    strJson = response.body().string();
+                    Gson gson = new Gson();
+                    Category category = gson.fromJson(strJson, Category.class);
+                    rvHome.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
+                    HomeAdapter adapter = new HomeAdapter();
+                    adapter.setContext(MainActivity.this);
+                    adapter.setData(category.getCategoryResult());
+                    rvHome.setAdapter(adapter);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
 
             }
 

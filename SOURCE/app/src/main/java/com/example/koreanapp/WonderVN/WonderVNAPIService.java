@@ -15,8 +15,9 @@ public interface WonderVNAPIService {
 
     @POST("Service/GetListPromotion")
     Call<ResponseBody> getListPromotion(@Body Object object);
+
     @POST("Service/GetListCategoryAndBanner")
-    Call<ResponseBody> getListCategorryAndBanner (@Body Object object);
+    Call<ResponseBody> getListCategory(@Body Object object);
 
 
 
