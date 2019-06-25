@@ -10,7 +10,7 @@ public class ListBanner {
 public String urlBanner;
 @SerializedName("place")
 @Expose
-public Place place;
+public PlaceHomeImage placeHomeImage;
 
     public String getUrlBanner() {
         return urlBanner;
@@ -20,11 +20,11 @@ public Place place;
         this.urlBanner = urlBanner;
     }
 
-    public Place getPlace() {
-        return place;
+    public PlaceHomeImage getPlaceHomeImage() {
+        return placeHomeImage;
     }
 
-    public void setPlace(Place place) {
-        this.place = place;
+    public void setPlaceHomeImage(PlaceHomeImage placeHomeImage) {
+        this.placeHomeImage = placeHomeImage;
     }
 }

@@ -78,7 +78,6 @@ public class PlaceInformationActivity extends AppCompatActivity {
         lnCallPhone = findViewById(R.id.ln_call_phone);
         tbPlaceInformation = findViewById(R.id.tb_place_information);
         TvInformationUrl = findViewById(R.id.tv_infomation_place_url);
-        rvImgPlace = findViewById(R.id.rv_img_place);
     }
 
 
