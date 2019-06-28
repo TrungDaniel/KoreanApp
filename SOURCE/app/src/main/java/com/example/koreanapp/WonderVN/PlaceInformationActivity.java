@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.example.koreanapp.Controller.Main.Adapter.PlaceInformationAdapter;
 import com.example.koreanapp.Model.PlaceResult;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 
 public class PlaceInformationActivity extends AppCompatActivity {
     RecyclerView rvPlaceInformation;
+    Toolbar tbPlaceInformation;
     ArrayList<Object> data = new ArrayList<>();
     PlaceInformationAdapter adapter;
 
@@ -22,8 +25,15 @@ public class PlaceInformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_information);
         init();
+        setToolbar();
         conFigRv();
         getData();
+    }
+
+    private void setToolbar() {
+        setSupportActionBar(tbPlaceInformation);
+        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void conFigRv() {
@@ -48,5 +58,6 @@ public class PlaceInformationActivity extends AppCompatActivity {
 
     private void init() {
         rvPlaceInformation = findViewById(R.id.rv_place_information);
+        tbPlaceInformation = findViewById(R.id.tb_place_information);
     }
 }

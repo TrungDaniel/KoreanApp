@@ -1,13 +1,10 @@
 package com.example.koreanapp.Model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import com.example.koreanapp.Model.Media;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.lang.annotation.Annotation;
 import java.util.List;
 
 public class PlaceResult implements Serializable {
@@ -56,7 +53,7 @@ public class PlaceResult implements Serializable {
     public String kakaoTalk;
     @SerializedName("listMedia")
     @Expose
-    public List<Object> listMedia = null;
+    public List<Media> listMedia = null;
 
     public Integer getPlaceID() {
         return placeID;
@@ -170,11 +167,11 @@ public class PlaceResult implements Serializable {
         this.kakaoTalk = kakaoTalk;
     }
 
-    public List<Object> getListMedia() {
+    public List<Media> getListMedia() {
         return listMedia;
     }
 
-    public void setListMedia(List<Object> listMedia) {
+    public void setListMedia(List<Media> listMedia) {
         this.listMedia = listMedia;
     }
 }

@@ -1,8 +1,5 @@
 package com.example.koreanapp.Model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -52,9 +49,9 @@ public class PlaceHomeImage {
     @SerializedName("kakaoTalk")
     @Expose
     public String kakaoTalk;
-    @SerializedName("listMedia")
+    @SerializedName("media")
     @Expose
-    public List<ListMedium> listMedia = null;
+    public List<Media> media = null;
 
     public Integer getPlaceID() {
         return placeID;
@@ -168,11 +165,11 @@ public class PlaceHomeImage {
         this.kakaoTalk = kakaoTalk;
     }
 
-    public List<ListMedium> getListMedia() {
-        return listMedia;
+    public List<Media> getMedia() {
+        return media;
     }
 
-    public void setListMedia(List<ListMedium> listMedia) {
-        this.listMedia = listMedia;
+    public void setMedia(List<Media> media) {
+        this.media = media;
     }
 }
