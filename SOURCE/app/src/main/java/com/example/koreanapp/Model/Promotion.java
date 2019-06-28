@@ -1,10 +1,11 @@
 package com.example.koreanapp.Model;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Promotion {
+public class Promotion implements Serializable {
 
 @SerializedName("status")
 @Expose

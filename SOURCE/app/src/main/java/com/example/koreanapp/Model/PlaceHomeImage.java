@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class PlaceHomeImage implements Parcelable {
+public class PlaceHomeImage {
 
     @SerializedName("placeID")
     @Expose
@@ -55,59 +55,6 @@ public class PlaceHomeImage implements Parcelable {
     @SerializedName("listMedia")
     @Expose
     public List<ListMedium> listMedia = null;
-
-    protected PlaceHomeImage(Parcel in) {
-        if (in.readByte() == 0) {
-            placeID = null;
-        } else {
-            placeID = in.readInt();
-        }
-        placeName = in.readString();
-        urlLogoPlace = in.readString();
-        if (in.readByte() == 0) {
-            categoryID = null;
-        } else {
-            categoryID = in.readInt();
-        }
-        address = in.readString();
-        phone = in.readString();
-        urlWeb = in.readString();
-        description = in.readString();
-        urlBanner = in.readString();
-        if (in.readByte() == 0) {
-            isMoreDetail = null;
-        } else {
-            isMoreDetail = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            isPromotion = null;
-        } else {
-            isPromotion = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            longitude = null;
-        } else {
-            longitude = in.readFloat();
-        }
-        if (in.readByte() == 0) {
-            latitude = null;
-        } else {
-            latitude = in.readFloat();
-        }
-        kakaoTalk = in.readString();
-    }
-
-    public static final Creator<PlaceHomeImage> CREATOR = new Creator<PlaceHomeImage>() {
-        @Override
-        public PlaceHomeImage createFromParcel(Parcel in) {
-            return new PlaceHomeImage(in);
-        }
-
-        @Override
-        public PlaceHomeImage[] newArray(int size) {
-            return new PlaceHomeImage[size];
-        }
-    };
 
     public Integer getPlaceID() {
         return placeID;
@@ -227,58 +174,5 @@ public class PlaceHomeImage implements Parcelable {
 
     public void setListMedia(List<ListMedium> listMedia) {
         this.listMedia = listMedia;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        if (placeID == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(placeID);
-        }
-        dest.writeString(placeName);
-        dest.writeString(urlLogoPlace);
-        if (categoryID == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(categoryID);
-        }
-        dest.writeString(address);
-        dest.writeString(phone);
-        dest.writeString(urlWeb);
-        dest.writeString(description);
-        dest.writeString(urlBanner);
-        if (isMoreDetail == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(isMoreDetail);
-        }
-        if (isPromotion == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(isPromotion);
-        }
-        if (longitude == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeFloat(longitude);
-        }
-        if (latitude == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeFloat(latitude);
-        }
-        dest.writeString(kakaoTalk);
     }
 }

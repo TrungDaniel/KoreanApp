@@ -1,4 +1,4 @@
-package com.example.koreanapp.Controller.Main;
+package com.example.koreanapp.WonderVN;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +13,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.koreanapp.Controller.Main.Adapter.HomeAdapter;
-import com.example.koreanapp.Controller.Main.Adapter.HomeImageAdapter;
 import com.example.koreanapp.Model.Category;
 import com.example.koreanapp.R;
-import com.example.koreanapp.WonderVN.ContactActivity;
-import com.example.koreanapp.WonderVN.PlaceActivity;
-import com.example.koreanapp.WonderVN.PromotionActivity;
-import com.example.koreanapp.WonderVN.WonderVNAPIService;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -65,14 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     adapter.setContext(MainActivity.this);
                     adapter.setData(category.getCategoryResult());
                     rvHome.setAdapter(adapter);
-                    // Recycler View Image
-                    LinearLayoutManager linearLayoutManager =
-                            new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
-                    rvHomeImage.setLayoutManager(linearLayoutManager);
-                    HomeImageAdapter homeImageAdapter = new HomeImageAdapter();
-                    homeImageAdapter.setContext(MainActivity.this);
-                    homeImageAdapter.setData(category.getCategoryResult());
-                    rvHomeImage.setAdapter(homeImageAdapter);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -129,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         tbMain = findViewById(R.id.tb_main);
         rvHome = findViewById(R.id.rv_home);
-        rvHomeImage = findViewById(R.id.rv_home_image);
+
     }
 
 }

@@ -1,83 +1,52 @@
 package com.example.koreanapp.WonderVN;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.koreanapp.Controller.Main.Adapter.PlaceInformationAdapter;
 import com.example.koreanapp.Model.PlaceResult;
 import com.example.koreanapp.R;
-import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class PlaceInformationActivity extends AppCompatActivity {
-    TextView tvInformationName, tvInformationAddress, tvInformationPhone, TvInformationUrl;
-    ImageView imgInformation;
-    LinearLayout lnCallPhone;
-    Toolbar tbPlaceInformation;
-    PlaceResult placeResult;
-    RecyclerView rvImgPlace;
+    RecyclerView rvPlaceInformation;
+    ArrayList<Object> data = new ArrayList<>();
+    PlaceInformationAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_information);
         init();
-        toolBar();
+        conFigRv();
         getData();
-        callPhone();
-
     }
 
-    private void toolBar() {
-        setSupportActionBar(tbPlaceInformation);
-        getSupportActionBar().setTitle(null);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    private void conFigRv() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        rvPlaceInformation.setLayoutManager(layoutManager);
+        adapter = new PlaceInformationAdapter(data, this);
+        rvPlaceInformation.setAdapter(adapter);
 
-    }
 
-    private void callPhone() {
-        lnCallPhone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", placeResult.getPhone(), null));
-                startActivity(intent);
-            }
-        });
     }
 
     private void getData() {
-        placeResult = (PlaceResult) getIntent().getParcelableExtra("object");
-        tvInformationName.setText(placeResult.getPlaceName());
-        tvInformationAddress.setText(placeResult.getAddress());
-        tvInformationPhone.setText(placeResult.getPhone());
-        TvInformationUrl.setText(placeResult.getUrlWeb());
-        Picasso.get().load(placeResult.getUrlLogoPlace()).into(imgInformation);
-
-        // RecyclerView ImagePlace
-
-
+        PlaceResult placeResult = (PlaceResult) getIntent().getSerializableExtra("object");
+        data.add(placeResult);
+        for (int i = 0; i < placeResult.getListMedia().size(); i++) {
+            data.add(placeResult.getListMedia().get(i));
+        }
+        adapter.notifyDataSetChanged();
 
 
     }
 
     private void init() {
-        tvInformationName = findViewById(R.id.tv_infomation_place_name);
-        tvInformationAddress = findViewById(R.id.tv_infomation_place_address);
-        tvInformationPhone = findViewById(R.id.tv_infomation_place_phone);
-        imgInformation = findViewById(R.id.img_information_place);
-        lnCallPhone = findViewById(R.id.ln_call_phone);
-        tbPlaceInformation = findViewById(R.id.tb_place_information);
-        TvInformationUrl = findViewById(R.id.tv_infomation_place_url);
+        rvPlaceInformation = findViewById(R.id.rv_place_information);
     }
-
-
 }

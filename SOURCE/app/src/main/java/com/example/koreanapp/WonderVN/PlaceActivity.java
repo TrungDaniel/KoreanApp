@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.koreanapp.Controller.Main.Adapter.PlaceAdapter;
-import com.example.koreanapp.Controller.Main.MainActivity;
 import com.example.koreanapp.Model.Place;
 import com.example.koreanapp.R;
 import com.google.gson.Gson;

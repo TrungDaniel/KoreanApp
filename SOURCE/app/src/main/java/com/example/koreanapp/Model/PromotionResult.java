@@ -3,7 +3,9 @@ package com.example.koreanapp.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PromotionResult {
+import java.io.Serializable;
+
+public class PromotionResult implements Serializable {
 
 @SerializedName("promotionID")
 @Expose
@@ -16,7 +18,7 @@ public String urlImage;
 public String promotionName;
 @SerializedName("placeDetail")
 @Expose
-public PlaceDetail placeDetail;
+public PlaceResult placeResult;
 
     public Integer getPromotionID() {
         return promotionID;
@@ -42,11 +44,11 @@ public PlaceDetail placeDetail;
         this.promotionName = promotionName;
     }
 
-    public PlaceDetail getPlaceDetail() {
-        return placeDetail;
+    public PlaceResult getPlaceResult() {
+        return placeResult;
     }
 
-    public void setPlaceDetail(PlaceDetail placeDetail) {
-        this.placeDetail = placeDetail;
+    public void setPlaceResult(PlaceResult placeResult) {
+        this.placeResult = placeResult;
     }
 }

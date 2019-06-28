@@ -2,7 +2,6 @@ package com.example.koreanapp.Controller.Main.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.koreanapp.Model.PlaceResult;
-import com.example.koreanapp.R;
 import com.example.koreanapp.WonderVN.PlaceInformationActivity;
+import com.example.koreanapp.R;
 
 import java.util.List;
 
@@ -20,12 +19,12 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     public Context context;
     public List<PlaceResult> data;
 
-    public void setData(List<PlaceResult> data) {
-        this.data = data;
-    }
-
     public void setContext(Context context) {
         this.context = context;
+    }
+
+    public void setData(List<PlaceResult> data) {
+        this.data = data;
     }
 
     @NonNull
@@ -42,11 +41,9 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
         placeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                v.getContext().startActivity(new Intent(v.getContext(), PlaceInformationActivity.class)
-                        .putExtra("object", (Parcelable) placeResult)
-                );
-
+                Intent intent = new Intent(context, PlaceInformationActivity.class);
+                intent.putExtra("object", placeResult);
+                context.startActivity(intent);
 
             }
         });

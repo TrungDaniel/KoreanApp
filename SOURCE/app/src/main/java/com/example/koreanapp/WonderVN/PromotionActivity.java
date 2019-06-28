@@ -13,8 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.koreanapp.Controller.Main.Adapter.PromotionAdapter;
-import com.example.koreanapp.Controller.Main.MainActivity;
-import com.example.koreanapp.Model.Place;
 import com.example.koreanapp.Model.Promotion;
 import com.example.koreanapp.R;
 import com.google.gson.Gson;
