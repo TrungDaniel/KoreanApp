@@ -1,6 +1,6 @@
 package com.example.koreanapp.Model;
 
-import com.example.koreanapp.Model.Media;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
