@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nav_Home"
-        android:title="Home"
-        android:icon="@mipmap/ic_icon_home"
+    <item android:id="@+id/nav_category"
+        android:title="Category"
+        android:icon="@mipmap/ic_icon_category"
         ></item>
     <item android:id="@+id/nav_place"
         android:title="Place"

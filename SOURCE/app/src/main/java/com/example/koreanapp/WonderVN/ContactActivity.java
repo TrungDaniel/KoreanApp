@@ -39,7 +39,6 @@ public class ContactActivity extends AppCompatActivity {
         init();
         toolBar();
         getData();
-        chuyenManHinh();
     }
 
     private void toolBar() {
@@ -47,33 +46,6 @@ public class ContactActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(null);
     }
 
-    private void chuyenManHinh() {
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_Home:
-                        Intent intentHome = new Intent(ContactActivity.this, MainActivity.class);
-                        startActivity(intentHome);
-                        finish();
-                        break;
-                    case R.id.nav_place:
-                        Intent intentPlace = new Intent(ContactActivity.this, PlaceActivity.class);
-                        startActivity(intentPlace);
-                        finish();
-                        break;
-                    case R.id.nav_promotion:
-                        Intent intentPromotion = new Intent(ContactActivity.this, PromotionActivity.class);
-                        startActivity(intentPromotion);
-                        finish();
-                        break;
-
-                }
-                return false;
-            }
-        });
-    }
 
     private void getData() {
         final ProgressDialog progressDoalog;

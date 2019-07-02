@@ -16,7 +16,7 @@ import com.example.koreanapp.Model.ListCate;
 import com.example.koreanapp.R;
 import com.squareup.picasso.Picasso;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.HomeViewHolder> {
     public Context context;
     public CategoryResult data;
 
@@ -45,7 +45,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         homeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ""+listCate.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "" + listCate.getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -59,7 +59,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
     public class HomeViewHolder extends RecyclerView.ViewHolder {
         ImageView imgHome;
-        TextView  tvHomeTitle;
+        TextView tvHomeTitle;
+
         public HomeViewHolder(@NonNull View itemView) {
             super(itemView);
             imgHome = itemView.findViewById(R.id.img_home_item);

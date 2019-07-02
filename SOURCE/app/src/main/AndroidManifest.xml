@@ -12,17 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WonderVN.PlaceInformationActivity" android:parentActivityName=".WonderVN.MainActivity"></activity>
-        <activity android:name=".WonderVN.PromotionActivity" />
-        <activity android:name=".WonderVN.ContactActivity" />
-        <activity android:name=".WonderVN.PlaceActivity" />
-        <activity android:name=".WonderVN.MainActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".WonderVN.PlaceInformationActivity"
+            android:parentActivityName=".WonderVN.CategoryActivity" />
+        <activity android:name=".WonderVN.PromotionActivity" />
+        <activity android:name=".WonderVN.ContactActivity" />
     </application>
 
 </manifest>
