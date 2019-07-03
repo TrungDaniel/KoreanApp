@@ -22,8 +22,6 @@
         <activity
             android:name=".WonderVN.PlaceInformationActivity"
             android:parentActivityName=".WonderVN.CategoryActivity" />
-        <activity android:name=".WonderVN.PromotionActivity" />
-        <activity android:name=".WonderVN.ContactActivity" />
     </application>
 
 </manifest>

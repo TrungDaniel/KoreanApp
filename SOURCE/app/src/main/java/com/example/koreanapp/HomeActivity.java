@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     private void init() {
         // khởi tạo fragment category khi khởi động
         CategoryFragment categoryFragment = new CategoryFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, categoryFragment);
         fragmentTransaction.commit();
 
@@ -33,24 +33,30 @@ public class HomeActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_category: {
                         CategoryFragment categoryFragment = new CategoryFragment();
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.container, categoryFragment);
-                        fragmentTransaction.commit();
+                        FragmentTransaction fragmentTransactionCategory = getSupportFragmentManager().beginTransaction();
+                        fragmentTransactionCategory.replace(R.id.container, categoryFragment);
+                        fragmentTransactionCategory.commit();
                         break;
                     }
                     case R.id.nav_place: {
                         PlaceFragment placeFragment = new PlaceFragment();
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.container, placeFragment);
-                        fragmentTransaction.commit();
+                        FragmentTransaction fragmentTransactionPlace = getSupportFragmentManager().beginTransaction();
+                        fragmentTransactionPlace.replace(R.id.container, placeFragment);
+                        fragmentTransactionPlace.commit();
                         break;
                     }
                     case R.id.nav_contact: {
-                        Toast.makeText(HomeActivity.this, "contact", Toast.LENGTH_SHORT).show();
+                        ContactFragment contactFragment = new ContactFragment();
+                        FragmentTransaction fragmentTransaction1Contact = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction1Contact.replace(R.id.container, contactFragment);
+                        fragmentTransaction1Contact.commit();
                         break;
                     }
                     case R.id.nav_promotion: {
-                        Toast.makeText(HomeActivity.this, "Category", Toast.LENGTH_SHORT).show();
+                        PromotionFragment promotionFragment = new PromotionFragment();
+                        FragmentTransaction fragmentTransaction1Promotion = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction1Promotion.replace(R.id.container, promotionFragment);
+                        fragmentTransaction1Promotion.commit();
                         break;
                     }
                 }
