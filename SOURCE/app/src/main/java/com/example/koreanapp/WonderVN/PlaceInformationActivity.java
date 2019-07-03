@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.koreanapp.Controller.Main.Adapter.PlaceInformationAdapter;
@@ -34,6 +35,12 @@ public class PlaceInformationActivity extends AppCompatActivity {
         setSupportActionBar(tbPlaceInformation);
         getSupportActionBar().setTitle(null);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tbPlaceInformation.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(PlaceInformationActivity.this, "ok", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void conFigRv() {

@@ -69,7 +69,6 @@ public class CategoryFragment extends Fragment {
                     adapter.setContext(getContext());
                     adapter.setData(category.getCategoryResult());
                     rvCategory.setAdapter(adapter);
-                    Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
 
                 } catch (IOException e) {
                     e.printStackTrace();
